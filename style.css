@@ -3,12 +3,26 @@ body {
     margin: 0;
     background-color: whitesmoke;
 }
-
+#text-wrapper{
+	margin:1vw;
+}
+#game-name{
+	text-align:center;
+	font-size:32px;
+	font-weight:600;
+}
+#description{
+	margin:3vw;
+	font-size:1em;
+}
+#body{
+	padding:10px;
+}
 .button {
-    height : 8vh;
-    width : 8vw;
-    max-height:60px;
-    max-width:60px;
+    height : 14vh;
+    width : 14vw;
+    max-height:70px;
+    max-width:70px;
     padding: 0;
     margin: 1px;
 border:1px saddlebrown solid;
@@ -44,23 +58,4 @@ border:1px saddlebrown solid;
     margin-right: 600px; */
     /* display: flex;
     justify-content: space-around; */
-}
-
-.red1 {
-    background-color:rgba(255,0,0,0.2);
-}
-.red2 {
-    background-color:rgba(255,0,0,0.4);
-}
-.red3 {
-    background-color:rgba(255,0,0,1);
-}
-.blue1 {
-    background-color: rgba(0,0,255,0.2);
-}
-.blue2 {
-    background-color: rgba(0,0,255,0.4);
-}
-.blue3 {
-    background-color: rgba(0,0,255,1);
 }

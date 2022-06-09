@@ -31,11 +31,11 @@ class gameBoard{
 		this.setColors(this.number_of_players,this.player_colors)
 	}
 	getRandomDarkColor(){
-	let color = "#";
-	for (let i = 0; i < 3; i++)
-		color += ("0" + Math.floor(Math.random() * Math.pow(16, 2) / 2).toString(16)).slice(-2);
-	return color;
-}
+		let color = "#";
+		for (let i = 0; i < 3; i++)
+			color += ("0" + Math.floor(Math.random() * Math.pow(16, 2) / 2).toString(16)).slice(-2);
+		return color;
+	}
 	setColors(n,player_colors){
 		for(let i=0;i<n;i++){
 			player_colors[i]=[];
@@ -65,23 +65,25 @@ class gameBoard{
 			}, n);
 		});
 	}
-	updatePlayer(){
-		//await this.delay(250)
+	async updatePlayer(){
+		await this.delay(250)
+
 		this.current_player++;
 		this.steps++;
 		this.current_player = this.current_player%this.number_of_players;
-		console.log(this.steps)
-		if(this.current_player==1 && this.steps>2){
-			console.log("current")
+
+		if(this.current_player==1 && this.steps>2 && !this.isTerminal()){
 			let moveAndValue = minmax(this.state,1,3)
-			console.log({moveAndValue})
+
+			//console.log({moveAndValue})
+
 			this.input(moveAndValue[0][0],moveAndValue[0][1])
 		}
 		if(this.current_player==1 && this.steps<2){
 			var possible_moves = this.getAllPossibleMoves(this.state,1)
 
 			var random = this.getRandom(0,possible_moves.length-1)
-			console.log(possible_moves[random][0],possible_moves[random][0])
+
 			this.input(possible_moves[random][0],possible_moves[random][0])
 		}
 	}
@@ -150,7 +152,7 @@ class gameBoard{
 		}
 	}
 	getDomNodeFromCoordinate(i,j){
-		var node = this.domWrapper.childNodes[1+i].childNodes[j];
+		var node = this.domWrapper.childNodes[i].childNodes[j];
 		return node;
 	}
 	getCoordinatesFromDomNode(domNode){
@@ -208,6 +210,9 @@ class gameBoard{
 	}
 	button_click(){
 		var coordinate = chainReaction.getCoordinatesFromDomNode(this)
+		if(chainReaction.steps>2 && chainReaction.isTerminal()){
+			return true;
+		}
 		chainReaction.input(coordinate[0],coordinate[1])
 	}
 

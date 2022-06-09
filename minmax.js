@@ -1,6 +1,6 @@
 
 function minmax(state,AI,depth){
-	console.log(depth)
+	//console.log(1)
 	if(chainReaction.isTerminal()){
 		if(chainReaction.getWinningPlayer()==1){ return [[-1,-1],10000] }
 		else{return [[-1,-1],-10000] }

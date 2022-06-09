@@ -6,16 +6,26 @@
     <title>Chain reaction</title>
     <link href="style.css" rel="stylesheet">
 </head>
-<body class="m">
-    <div id = "upper">
-        <!-- <button id="undo">undo</button> -->
-        <span id = "playerTurn"></span>
-    </div>
-	<p>you are top left corner player</p>
-    <div id = "body">
-    </div>
-<script src="utils.js"></script>
-<script src="minmax.js"></script>
-<script src="chainReaction.js"></script>
+<body>
+
+<!-- <div id = "upper">
+		<button id="undo">undo</button> 
+		<span id = "playerTurn"></span>
+</div> -->
+	<div id="text-wrapper">
+		<div id="game-name">Chain Reaction</div>
+		<div id="description">
+			<p>Chain Reaction is a multiplayer game.</p>
+			<p>In which the objective is to take control of the board by eliminating your opponents' orbs.</p>
+			<p>Players take it in turns to place their orbs in a cell. Once a cell has reached critical mass the orbs explode into the surrounding cells adding an extra orb and claiming the cell for the player.</p>
+			<p>A player may only place their orbs in a blank cell or a cell that contains orbs of their own colour. As soon as a player looses all their orbs they are out of the game.</p>
+		</div>
+	</div>
+
+	<div id = "body"  class="m"></div>
+
+	<script src="utils.js"></script>
+	<script src="minmax.js"></script>
+	<script src="chainReaction.js"></script>
 </body>
 </html>
