@@ -124,10 +124,16 @@ class gameBoard{
 		}
 		this.setColors(this.number_of_players,this.player_colors)
 	}
+	getRandomDarkColor(){
+	let color = "#";
+	for (let i = 0; i < 3; i++)
+		color += ("0" + Math.floor(Math.random() * Math.pow(16, 2) / 2).toString(16)).slice(-2);
+	return color;
+}
 	setColors(n,player_colors){
 		for(let i=0;i<n;i++){
 			player_colors[i]=[];
-			var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+			var randomColor = this.getRandomDarkColor()
 			player_colors[i].push(this.newShade(randomColor,100))
 			player_colors[i].push(this.newShade(randomColor,50))
 			player_colors[i].push(randomColor)
@@ -158,12 +164,23 @@ class gameBoard{
 		this.current_player++;
 		this.steps++;
 		this.current_player = this.current_player%this.number_of_players;
+		console.log(this.steps)
 		if(this.current_player==1 && this.steps>2){
 			console.log("current")
 			let moveAndValue = minmax(this.state,1,3)
 			console.log({moveAndValue})
 			this.input(moveAndValue[0][0],moveAndValue[0][1])
 		}
+		if(this.current_player==1 && this.steps<2){
+			var possible_moves = this.getAllPossibleMoves(this.state,1)
+
+			var random = this.getRandom(0,possible_moves.length-1)
+			console.log(possible_moves[random][0],possible_moves[random][0])
+			this.input(possible_moves[random][0],possible_moves[random][0])
+		}
+	}
+	getRandom(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
 	}
 	getPlayer(){
 		return this.current_player;
@@ -365,5 +382,3 @@ class gameBoard{
 	}			
 }
 chainReaction = new gameBoard(5,2,document.getElementById('body'))
-chainReaction.input(0,0)
-chainReaction.input(4,4)
