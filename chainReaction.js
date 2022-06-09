@@ -8,8 +8,9 @@ class gameBoard{
 	current_player = 0;
 	number_of_players;
 	
-	constructor(size,number_of_players,domWrapper){
+	constructor(size,number_of_players,domWrapper,gameStatus){
 		this.size=size
+		this.gameStatus = gameStatus
 		this.number_of_players=number_of_players
 		this.domWrapper=domWrapper
 		//making sizexsize button matrix
@@ -79,6 +80,8 @@ class gameBoard{
 
 			this.input(moveAndValue[0][0],moveAndValue[0][1])
 		}
+		if(this.current_player==1 && this.steps>2 && this.isTerminal()) this.updateGameStatus()
+
 		if(this.current_player==1 && this.steps<2){
 			var possible_moves = this.getAllPossibleMoves(this.state,1)
 
@@ -208,9 +211,13 @@ class gameBoard{
 			this.updatePlayer()
 		}
 	}
+	updateGameStatus(){
+		this.gameStatus.innerHTML = this.getWinningPlayer(this.state)==1?'AI outsmarted you!':'You outsmarted AI'
+	}
 	button_click(){
 		var coordinate = chainReaction.getCoordinatesFromDomNode(this)
 		if(chainReaction.steps>2 && chainReaction.isTerminal()){
+			chainReaction.updateGameStatus()
 			return true;
 		}
 		chainReaction.input(coordinate[0],coordinate[1])
@@ -292,4 +299,4 @@ class gameBoard{
 		}
 	}			
 }
-chainReaction = new gameBoard(5,2,document.getElementById('body'))
+chainReaction = new gameBoard(5,2,document.getElementById('body'),document.getElementById('game-status'))
