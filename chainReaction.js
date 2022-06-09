@@ -212,7 +212,7 @@ class gameBoard{
 		}
 	}
 	updateGameStatus(){
-		this.gameStatus.innerHTML = this.getWinningPlayer(this.state)==1?'AI outsmarted you!':'You outsmarted AI'
+		this.gameStatus.innerHTML = this.getWinningPlayer(this.state)==1?'AI outsmarted you!<p>Wanna give it another try?? Come on lets teach this AI a lesson!!</p>':'You outsmarted AI.<p>Thats the spirit, come lets beat it again!</p>'
 	}
 	button_click(){
 		var coordinate = chainReaction.getCoordinatesFromDomNode(this)

@@ -11,10 +11,16 @@ body {
 	font-size:32px;
 	font-weight:600;
 }
-#description{
-	margin:3vw;
-	font-size:1em;
+#description p{
+	margin:5px;
 }
+#description{
+	padding:1vw;
+	font-size:1em;
+	background-color:white;
+	border-radius:5px;
+}
+
 #game-status{
 	text-align:center;
 	font-size:1.5em;
