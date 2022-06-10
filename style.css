@@ -8,6 +8,7 @@ body {
 	margin:1vw;
 }
 #game-name{
+	letter-spacing:0.1em;
 	text-align:center;
 	font-size:32px;
 	font-weight:600;
