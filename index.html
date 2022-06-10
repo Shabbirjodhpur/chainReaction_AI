@@ -14,18 +14,28 @@
 </div> -->
 	<div id="text-wrapper">
 		<div id="game-name">Chain Reaction</div>
-		<div id="description">
-			<p>Chain Reaction is a multiplayer game.</p>
-			<p>In which the objective is to take control of the board by eliminating your opponents' orbs.</p>
-			<p>Players take it in turns to place their orbs in a cell. Once a cell has reached critical mass the orbs explode into the surrounding cells adding an extra orb and claiming the cell for the player.</p>
-			<p>A player may only place their orbs in a blank cell or a cell that contains orbs of their own colour. As soon as a player looses all their orbs they are out of the game.</p>
+		<div id="sections">
+			<div id="description">
+				<p>-> Inspired by the chain reaction that takes place in nature.</p>
+				<p>-> Chain Reaction is a multiplayer game.</p>
+				<p>-> In which the objective is to take control of the board by eliminating your opponents' orbs.</p>
+				<p>-> Players take it in turns to place their orbs in a cell. Once a cell has reached critical mass the orbs explode into the surrounding cells adding an extra orb and claiming the cell for the player.</p>
+				<p>-> A player may only place their orbs in a blank cell or a cell that contains orbs of their own colour. As soon as a player looses all their orbs they are out of the game.</p>
+			</div>
+			<div id="description">
+					<div id = "left">
+						<img src="chain.webp"/>
+					</div>
+			</div>	
 		</div>
 	</div>
-	<div id="game-status"></div>
-	<div id = "body"  class="m"></div>
-
+	<div id="game-ui">
+		<div id="game-status"></div>
+		<div id = "body"  class="m"></div>
+	</div>
 	<script src="utils.js"></script>
 	<script src="minmax.js"></script>
 	<script src="chainReaction.js"></script>
+
 </body>
 </html>

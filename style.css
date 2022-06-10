@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 body {
     padding: 0;
     margin: 0;
@@ -13,29 +14,60 @@ body {
 }
 #description p{
 	margin:5px;
+	font-family: 'Joan', serif;
+}
+#sections{
+	display:flex;
+	justify-content:space-around;
 }
 #description{
 	padding:1vw;
 	font-size:1em;
 	background-color:white;
 	border-radius:5px;
-}
+	width:45vw;
+	letter-spacing: 0.1em;
 
+}
+#description p{
+	padding:0.5em;
+}
+#left{
+	display:flex;
+	justify-content:center;
+}
+#left img{
+	width:40vw;
+	max-width:350px;
+	max-height:350px;
+}
+#game-name{
+	padding:1em;
+}
 #game-status{
 	text-align:center;
 	font-size:1.5em;
 }
+#game-ui{
+	display:flex;
+	justify-content:center;
+}
 #body{
-	padding:10px;
+	background-color:rgb(220,220,220);
+	width:80vw;
+	padding:50px 0px;
+	border-radius:4px;
 }
 .button {
-    height : 14vh;
-    width : 14vw;
-    max-height:70px;
-    max-width:70px;
-    padding: 0;
-    margin: 1px;
-border:1px saddlebrown solid;
+	height : 14vw;
+	width : 14vw;
+	max-height:100px;
+	max-width:100px;
+	padding: 0;
+	margin: 1px;
+	border-radius:20%;
+	font-weight:600;
+	border:1px saddlebrown solid;
 }
 .div {
     padding: 0;
@@ -68,4 +100,19 @@ border:1px saddlebrown solid;
     margin-right: 600px; */
     /* display: flex;
     justify-content: space-around; */
+}
+@media only screen and (max-width: 600px) {
+	#description{
+		margin: 5px;
+		padding: 1vw;
+		font-size: 1em;
+		background-color: white;
+		border-radius: 5px;
+		width: 90vw;
+	}
+	#sections{
+		display: grid;
+		justify-content: center;
+		flex-direction: column;
+	}
 }
